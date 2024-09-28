@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import Modal from "react-modal";
 import { QuizContext } from "./services/QuizProvider";
 
-
+Modal.setAppElement("#root");
 export default function CompleteqQuiz() {
   const { isModalOpen, setIsModalOpen } = useContext(QuizContext);
   const { pageProgress } = useContext(QuizContext);
@@ -23,7 +23,9 @@ export default function CompleteqQuiz() {
   //   } else if (progressLevel > 70) {
   //   } else {
   //   }
-const handleRestart=()=>{window.location.reload(true);}
+  const handleRestart = () => {
+    window.location.reload(true);
+  };
   return (
     <>
       <Modal
@@ -31,7 +33,7 @@ const handleRestart=()=>{window.location.reload(true);}
         style={{
           overlay: {
             position: "fixed",
-            
+
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "auto",
@@ -52,27 +54,58 @@ const handleRestart=()=>{window.location.reload(true);}
           },
         }}
       >
-        <h3 className="text-center">Thank you for your answers, here is your score </h3>
-        {progressLevel<=40 && <>
-        <div className="alert alert-danger text-center fit-content"> You can do it better!</div>
-        <p className="text-center">Final score:</p>
-        <h2 className="text-center">{progressLevel}%</h2>
-        <button onClick={handleRestart} className="btn border border-danger">Restart Quiz</button>
-        </>}
-        {progressLevel>40 && progressLevel<=70 &&<>
-        <div className="alert alert-warning text-center fit-content"> Not bad!</div>
-        <p className="text-center">Final score:</p>
-        <h2 className="text-center">{progressLevel}%</h2>
-        <button onClick={handleRestart} className="btn border border-warning">Restart Quiz</button>
-        </>}
-        {progressLevel>70 &&<>
-        <div className="alert alert-success text-center fit-content"> Congratulation!</div>
-        <p className="text-center">Final score:</p>
-        <h2 className="text-center">{progressLevel}%</h2>
-        <button onClick={handleRestart} className="btn border border-success">Restart Quiz</button>
-        </>}
+        <h3 className="text-center">
+          Thank you for your answers, here is your score{" "}
+        </h3>
+        {progressLevel <= 40 && (
+          <>
+            <div className="alert alert-danger text-center fit-content">
+              {" "}
+              You can do it better!
+            </div>
+            <p className="text-center">Final score:</p>
+            <h2 className="text-center">{progressLevel}%</h2>
+            <button
+              onClick={handleRestart}
+              className="btn border border-danger"
+            >
+              Restart Quiz
+            </button>
+          </>
+        )}
+        {progressLevel > 40 && progressLevel <= 70 && (
+          <>
+            <div className="alert alert-warning text-center fit-content">
+              {" "}
+              Not bad!
+            </div>
+            <p className="text-center">Final score:</p>
+            <h2 className="text-center">{progressLevel}%</h2>
+            <button
+              onClick={handleRestart}
+              className="btn border border-warning"
+            >
+              Restart Quiz
+            </button>
+          </>
+        )}
+        {progressLevel > 70 && (
+          <>
+            <div className="alert alert-success text-center fit-content">
+              {" "}
+              Congratulation!
+            </div>
+            <p className="text-center">Final score:</p>
+            <h2 className="text-center">{progressLevel}%</h2>
+            <button
+              onClick={handleRestart}
+              className="btn border border-success"
+            >
+              Restart Quiz
+            </button>
+          </>
+        )}
       </Modal>
-      
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import Modal from "react-modal";
 import { QuizContext } from "./services/QuizProvider";
-
+Modal.setAppElement('#root');
 export default function AddNewQuestion() {
   const { getNewQuestion, setGetNewQuestion } = useContext(QuizContext);
 
@@ -66,11 +66,11 @@ const isSaveNewAnswer=false;
       >
         <h3 className="text-center">Add new question</h3>
         <form onSubmit={handleSubmit}>
-          <div class="form-group">
-            <label for="category">Question category</label>
+          <div className="form-group">
+            <label htmlFor="category">Question category</label>
             <input
               type="input"
-              class="form-control"
+              className="form-control"
               id="category"
               aria-describedby="category"
               placeholder="category"
@@ -80,11 +80,11 @@ const isSaveNewAnswer=false;
               }
             />
           </div>
-          <div class="form-group">
-            <label for="question">Question</label>
+          <div className="form-group">
+            <label htmlFor="question">Question</label>
             <input
               type="textarea"
-              class="form-control"
+              className="form-control"
               id="question"
               aria-describedby="question"
               placeholder="question"
@@ -94,55 +94,55 @@ const isSaveNewAnswer=false;
               }
             />
           </div>
-          <div class="form-group">
-            <label for="options1">Option 1</label>
+          <div className="form-group">
+            <label htmlFor="options1">Option 1</label>
             <input
               type="input"
-              class="form-control"
+              className="form-control"
               id="options1"
               aria-describedby="options1"
               placeholder="options1"
               onChange={(e) => handleOptionChange(0, e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="options2">Option 2</label>
+          <div className="form-group">
+            <label htmlFor="options2">Option 2</label>
             <input
               type="input"
-              class="form-control"
+              className="form-control"
               id="options2"
               aria-describedby="options2"
               placeholder="options2"
               onChange={(e) => handleOptionChange(1, e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="options3">Option 3</label>
+          <div className="form-group">
+            <label htmlFor="options3">Option 3</label>
             <input
               type="input"
-              class="form-control"
+              className="form-control"
               id="options3"
               aria-describedby="options3"
               placeholder="options3"
               onChange={(e) => handleOptionChange(2, e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="options4">Option 4</label>
+          <div className="form-group">
+            <label htmlFor="options4">Option 4</label>
             <input
               type="input"
-              class="form-control"
+              className="form-control"
               id="options4"
               aria-describedby="options4"
               placeholder="options4"
               onChange={(e) => handleOptionChange(3, e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="correctAnswer">correctAnswer</label>
+          <div className="form-group">
+            <label htmlFor="correctAnswer">correctAnswer</label>
             <input
               type="input"
-              class="form-control"
+              className="form-control"
               id="correctAnswer"
               aria-describedby="correctAnswer"
               placeholder="correctAnswer"
