@@ -6,6 +6,7 @@ import CompleteqQuiz from "./CompleteqQuiz";
 import TaskProgressBar from "./TaskProgressBar";
 import TaskButtons from "./TaskButtons";
 import TaskQuestions from "./TaskQuestions";
+import AddNewQuestion from "./AddNewQuestion";
 
 export default function TaskWindow() {
   return (
@@ -14,6 +15,7 @@ export default function TaskWindow() {
         <div className="w-50">
           <QuizProvider>
             <CompleteqQuiz/>
+            <AddNewQuestion />
             <TaskProgressBar />
             <TaskQuestions />
             <TaskButtons />

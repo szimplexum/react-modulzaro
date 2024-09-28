@@ -9,9 +9,14 @@ export default function TaskButtons() {
   const { countOfcorrectAnswer, setCountOfcorrectAnswer } =
     useContext(QuizContext);
   const { setIsModalOpen } = useContext(QuizContext);
+  const {getNewQuestion, setGetNewQuestion}= useContext(QuizContext);
 
 const handleResponse=()=>{
      setIsModalOpen(true)}
+
+const handleAddNewClick=()=>{
+    setGetNewQuestion(true)
+}
   
   const handleNextButtonClick = () => {
     if (pageProgress < answerNumber) {
@@ -30,7 +35,7 @@ const handleResponse=()=>{
       ) : (
         <button onClick={handleResponse} className="btn btn-warning ">No more question, SHOW my rates</button>
       )}
-      <button className="btn btn-success">Add New Question</button>
+      <button onClick={handleAddNewClick} className="btn btn-success">Add New Question</button>
     </div>
   );
 }

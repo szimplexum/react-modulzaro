@@ -11,6 +11,7 @@ export default function TaskQuestions() {
   const [questions, setQuestion] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
   const numberOfQuestion = pageProgress;
+  const {getNewQuestion, }= useContext(QuizContext);
 
   const [formData, setFormData] = useState({
     option: "",
@@ -29,7 +30,7 @@ export default function TaskQuestions() {
         //console.table(questions[0].options[0]);
         console.log("A jó válasz: ", questions[numberOfQuestion].correctAnswer);
       });
-  }, [pageProgress, IsModalOpen]);
+  }, [pageProgress, IsModalOpen,getNewQuestion]);
 
   const handleInputCheck = (e) => {
     const { value, checked } = e.target;
